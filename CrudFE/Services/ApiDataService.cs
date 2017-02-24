@@ -31,5 +31,10 @@ namespace CrudFE.Services
         {
             return await requestClient.CreateUserAsync(user);
         }
+
+        public async Task<bool> DeleteUserAsync(int userId)
+        {
+            return await requestClient.DeleteUserAsync(userId);
+        }
     }
 }

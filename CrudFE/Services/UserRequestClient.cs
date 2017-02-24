@@ -88,7 +88,19 @@ namespace CrudFE.Services
                 return false;
             }
             return true;
+        }
 
+        public async Task<bool> DeleteUserAsync(int userId)
+        {
+            try
+            {
+                HttpResponseMessage response = await client.DeleteAsync("/api/users/" + userId);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
