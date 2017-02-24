@@ -20,20 +20,28 @@ namespace CrudFE.Controllers
 
             return View(users);
         }
-        public ActionResult Edit()
+        public ActionResult Edit(UserModel user)
         {
-
-
-            return View(new List<UserModel>());
+            ApiDataService service = new ApiDataService();
+            
+            return View(user);
         }
-        public ActionResult Details()
-        {
-            var userList = new List<UserModel>
-            {
-               
-            };
 
-            return View(userList);
+        [ActionName("Edit")]
+        [HttpPost]
+        public async Task<ActionResult> Edit_User([Bind(Include = "UserId,UserName,FirstName,LastName,ContactNumber")] UserModel user)
+        {
+            ApiDataService service = new ApiDataService();
+            var result = await service.UpdateUserAsync(user);
+
+            return RedirectToAction("UserList");
+        }
+        public async Task<ActionResult> Details(int? id)
+        {
+            ApiDataService service = new ApiDataService();
+            var user = await service.GetUser(id.Value);
+
+            return View(user);
         }
         public ActionResult Delete()
         {
@@ -43,6 +51,25 @@ namespace CrudFE.Controllers
             };
 
             return View(userList);
+        }
+
+        public ActionResult Create()
+        {
+            var user = new UserModel{};
+
+            return View(user);
+        }
+
+        [ActionName("Create")]
+        [HttpPost]
+        public ActionResult Create_user(UserModel user)
+        {
+            var userList = new List<UserModel>
+            {
+
+            };
+
+            return View();
         }
     }
 }

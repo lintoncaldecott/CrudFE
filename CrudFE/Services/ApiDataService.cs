@@ -16,5 +16,20 @@ namespace CrudFE.Services
             return users;
         }
 
+        public async Task<UserModel> GetUser(int userId)
+        {
+            var users = await requestClient.GetUserAsync(userId);
+            return users;
+        }
+
+        public async Task<bool> UpdateUserAsync(UserModel user)
+        {
+            return await requestClient.UpdateUserAsync(user);
+        }
+
+        public async Task<bool> CreateUserAsync(UserModel user)
+        {
+            return await requestClient.CreateUserAsync(user);
+        }
     }
 }

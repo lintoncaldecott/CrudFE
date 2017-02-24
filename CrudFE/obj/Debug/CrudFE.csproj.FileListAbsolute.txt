@@ -71,3 +71,13 @@ E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Sys
 E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\System.Net.Http.Formatting.xml
 E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\System.Web.Http.xml
 E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\System.Web.Http.WebHost.xml
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.ServiceLocation.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.Unity.Configuration.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.Unity.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Unity.Mvc5.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.ServiceLocation.pdb
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.ServiceLocation.xml
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.Unity.xml
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.Unity.Configuration.xml
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
