@@ -1,12 +1,83 @@
 ﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<CrudFE.Models.UserModel>
 
-@model IEnumerable<CrudFE.Models.UserModel>
-
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Users";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>View</h2>
+
+<h2 class="shadow">Your contacts</h2>
+<div>
+    @using (Html.BeginForm("UserList", "User", FormMethod.Get))
+    {
+        <p class="table-font edit-text-color shadow">
+            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "search-text-color" })
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <table class="table table-font detail-background">
+        <tr>
+            <th class="table-header underline">
+                @Html.ActionLink("First Name", "UserList", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th class="table-header">
+                Last Name
+            </th>
+            <th class="table-header">
+                Contact Number
+            </th>
+            <th class="table-header">
+                Email
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", item) |
+                    @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                    @Html.ActionLink("Delete", "Delete", item)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    <div class="table-font edit-text-color shadow">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("UserList",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        <div>
+            <div>
+                <button class="btn btn-default" type="button" id="addressSearch"
+                        onclick="location.href='@Url.Action("Create", "User")'">
+                    Add user
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+
+@*<h2>View</h2>
 
     <p>
         @Html.ActionLink("Create New", "Create")
@@ -44,5 +115,5 @@
         </tr>
     }
     
-    </table>
+    </table>*@
 

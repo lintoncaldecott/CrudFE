@@ -53,3 +53,11 @@ E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\b
 E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\obj\Debug\CrudFE.Tests.csprojResolveAssemblyReference.cache
 E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\obj\Debug\CrudFE.Tests.dll
 E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\obj\Debug\CrudFE.Tests.pdb
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\bin\Debug\Microsoft.Practices.Unity.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\bin\Debug\Unity.Mvc5.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\bin\Debug\System.Net.Http.Formatting.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\bin\Debug\Microsoft.Practices.Unity.xml
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\bin\Debug\System.Net.Http.Formatting.xml
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml

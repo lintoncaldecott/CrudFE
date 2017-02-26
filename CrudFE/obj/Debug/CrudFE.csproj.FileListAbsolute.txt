@@ -81,3 +81,7 @@ E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Mic
 E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.Unity.xml
 E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.Unity.Configuration.xml
 E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\PagedList.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\PagedList.Mvc.dll
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\PagedList.xml
+E:\users\callinkirjo\documents\visual studio 2015\Projects\CrudFE\CrudFE\bin\PagedList.Mvc.xml

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using CrudFE.Models;
 using CrudFE.Services;
 using System.Threading.Tasks;
-
+using PagedList;
 namespace CrudFE.Controllers
 {
     
@@ -18,11 +18,43 @@ namespace CrudFE.Controllers
             _service = service;
         }
         // GET: User
-        public async Task<ActionResult> UserList()
+        public async Task<ActionResult> UserList(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            var users = await _service.GetUserList();
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
 
-            return View(users);
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+            var users = await _service.GetUserList();
+            //var contacts = from s in dbContext.ContactModels
+            //               select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())
+                                       || s.FirstName.ToUpper().Contains(searchString.ToUpper())).ToList();
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    users = users.OrderByDescending(s => s.LastName).ToList();
+                    break;
+                default:  // Name ascending 
+                    users = users.OrderBy(s => s.LastName).ToList();
+                    break;
+            }
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(users.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Edit(UserModel user)
