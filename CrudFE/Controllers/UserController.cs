@@ -12,19 +12,21 @@ namespace CrudFE.Controllers
     
     public class UserController : Controller
     {
+        IApiDataService _service;
+        public UserController(ApiDataService service)
+        {
+            _service = service;
+        }
         // GET: User
         public async Task<ActionResult> UserList()
         {
-            ApiDataService service = new ApiDataService();
-            var users = await service.GetUserList();
+            var users = await _service.GetUserList();
 
             return View(users);
         }
 
         public ActionResult Edit(UserModel user)
         {
-            ApiDataService service = new ApiDataService();
-            
             return View(user);
         }
 
@@ -32,16 +34,14 @@ namespace CrudFE.Controllers
         [HttpPost]
         public async Task<ActionResult> Edit_User([Bind(Include = "UserId,UserName,FirstName,LastName,ContactNumber")] UserModel user)
         {
-            ApiDataService service = new ApiDataService();
-            var result = await service.UpdateUserAsync(user);
+            var result = await _service.UpdateUserAsync(user);
 
             return RedirectToAction("UserList");
         }
 
         public async Task<ActionResult> Details(int? id)
         {
-            ApiDataService service = new ApiDataService();
-            var user = await service.GetUser(id.Value);
+            var user = await _service.GetUser(id.Value);
 
             return View(user);
         }
@@ -55,16 +55,13 @@ namespace CrudFE.Controllers
         [HttpPost]
         public async Task<ActionResult> Delete_User(int? userId)
         {
-            ApiDataService service = new ApiDataService();
-
-            var result = await service.DeleteUserAsync(userId.Value);
+            var result = await _service.DeleteUserAsync(userId.Value);
             return RedirectToAction("UserList");
         }
 
         public ActionResult Create()
         {
             var user = new UserModel{};
-
             return View(user);
         }
 
@@ -72,9 +69,7 @@ namespace CrudFE.Controllers
         [HttpPost]
         public async Task<ActionResult> Create_user(UserModel user)
         {
-            ApiDataService service = new ApiDataService();
-            
-            var result = await service.CreateUserAsync(user);
+            var result = await _service.CreateUserAsync(user);
 
             return RedirectToAction("UserList");
         }

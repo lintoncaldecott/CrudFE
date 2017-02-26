@@ -8,14 +8,16 @@ using CrudFE.Models;
 using Newtonsoft.Json;
 using System.Configuration;
 using System.Net.Http.Headers;
+using CrudFE.Services;
 
 namespace CrudFE.Services
 {
-    public class UserRequestClient : HttpClient
+    public class UserRequestClient : HttpClient, IUserRequestClient
     {
-        static HttpClient client = new HttpClient();
+        static HttpClient client;
         public UserRequestClient()
-        {   
+        {
+            client = new HttpClient();
             client.BaseAddress = new Uri(ConfigurationManager.AppSettings["UserApi"]);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -33,7 +35,7 @@ namespace CrudFE.Services
                     users = JsonConvert.DeserializeObject<List<UserModel>>(userString);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -52,7 +54,7 @@ namespace CrudFE.Services
                     users = JsonConvert.DeserializeObject<UserModel>(userString);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -61,13 +63,12 @@ namespace CrudFE.Services
 
         public async Task<bool> UpdateUserAsync(UserModel user)
         {
-            UserModel users = null;
             try
             {
                 string postData = JsonConvert.SerializeObject(user);
                 HttpResponseMessage response = await client.PutAsJsonAsync("/api/users/" + user.UserId, user);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -77,13 +78,12 @@ namespace CrudFE.Services
 
         public async Task<bool> CreateUserAsync(UserModel user)
         {
-            UserModel users = null;
             try
             {
                 string postData = JsonConvert.SerializeObject(user);
                 HttpResponseMessage response = await client.PostAsJsonAsync("/api/users/" + user.UserId, user);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -96,7 +96,7 @@ namespace CrudFE.Services
             {
                 HttpResponseMessage response = await client.DeleteAsync("/api/users/" + userId);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
