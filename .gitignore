@@ -1,0 +1,4 @@
+*.dll
+CrudFE/bin/CrudFE.pdb
+*.pdb
+CrudFE/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
